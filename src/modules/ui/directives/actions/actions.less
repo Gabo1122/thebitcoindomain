@@ -1,0 +1,56 @@
+@import (reference) 'config';
+
+.actions {
+  display: inline-block;
+  vertical-align: top;
+  cursor: pointer;
+  user-select: none;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+
+  @media screen and (max-width: 768px) {
+    right: 16px;
+  }
+
+  &__container {
+    z-index: 4;
+    min-width: 215px;
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 0;
+    margin-bottom: 10px;
+    padding: 17px 0;
+    background-color: @color-white;
+    box-shadow: @shadow-buttons-default;
+    border-radius: @border-radius;
+
+    &.expanded {
+      display: block;
+    }
+  }
+
+  &__click {
+    display: flex;
+    justify-content: center;
+    width: 18px;
+    height: 16px;
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-height: 590px) {
+  .actions {
+    &__container {
+      &.to-up {
+        top: auto;
+        bottom: -10px;
+      }
+    }
+  }
+}
+
+

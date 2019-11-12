@@ -1,0 +1,30 @@
+@import (reference) 'config';
+@import (reference) 'icons';
+@import (reference) '../../app/less/app';
+
+body.keeper {
+  .address {
+    align-items: center;
+    w-avatar {
+      flex-grow: 0;
+    }
+  }
+
+  .error-icon,
+  .keeper-icon {
+    height: 80px;
+    width: 80px;
+    margin: 0 auto 30px auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+  }
+
+  .keeper-icon {
+    background-image: @keeper-icon;
+  }
+
+  .error-icon {
+    background-image: @error-circle-icon;
+  }
+}

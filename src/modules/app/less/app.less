@@ -1,0 +1,338 @@
+@import (reference) 'config';
+@import (reference) 'app-icons';
+@import (reference) '../../app/less/typography';
+
+* {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+}
+
+html,
+body {
+  .footnote-1();
+  width: 100%;
+  height: 100%;
+  min-width: 320px;
+  overflow: auto;
+  color: @color-basic-900;
+  background-color: @app-background;
+}
+
+@media screen and (max-width: 860px) {
+  .menu-is-shown {
+    .logo-header,
+    .movable {
+      transform: translateX(-261px);
+    }
+  }
+}
+
+.movable {
+  transition: transform .2s;
+}
+
+a {
+  text-decoration: none;
+  color: @color-submit-300;
+  cursor: pointer;
+}
+
+ng-include {
+  height: 100%;
+  display: block;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: @color-success-500;
+  -webkit-text-fill-color: @color-disabled-900;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+::selection {
+  background: @selection-bg;
+}
+
+::-moz-selection {
+  background: @selection-bg;
+}
+
+body.keeper,
+body.welcome,
+body.signIn,
+body.saveSeed,
+body.create,
+body.restore,
+body.import,
+body.ledger,
+body.desktop {
+  .main-container {
+    min-height: calc(100vh ~'- 60px');
+    flex-shrink: 0;
+  }
+}
+
+body.saveSeed,
+body.tokens,
+body.keeper,
+body.welcome,
+body.signIn,
+body.create,
+body.restore,
+body.import,
+body.ledger,
+body.tokens,
+body.wallet,
+body.stand,
+body.dex-demo,
+body.dex {
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  :hover::-webkit-scrollbar {
+    display: block;
+  }
+
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 3px @color-basic-100;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    background: @color-basic-100;
+    -webkit-box-shadow: inset 0 0 3px @color-basic-500;
+  }
+
+  ::-webkit-scrollbar-thumb:window-inactive {
+    background: @color-basic-200;
+  }
+}
+
+body.assets,
+body.portfolio {
+  .btn-send,
+  .btn-receive {
+    margin-right: 10px;
+    button {
+      padding: 0 8px;
+      @media screen and (min-width: 481px) {
+        padding: 0 30px;
+      }
+    }
+  }
+}
+
+.ui-view {
+  display: block;
+  height: 100%;
+
+  &_main {
+    overflow: auto;
+  }
+}
+
+.logo {
+  width: 152px;
+  height: 32px;
+  transition: .1s;
+  display: block;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+body.tokens,
+body.welcome,
+body.wallet,
+body.dex {
+  .logo {
+    cursor: default;
+  }
+}
+
+.waves-logo {
+  width: 100px;
+  height: 21px;
+  background-image: @waves-logo-icon;
+  background-repeat: no-repeat;
+}
+
+.scroll-box {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: 100%;
+}
+
+.btn-active() {
+  cursor: default;
+  background-color: @color-disabled-100;
+  color: @color-black;
+}
+
+.main-content {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  min-height: 355px;
+  min-width: 320px;
+  height: calc(~'100%' - 60px);
+  max-height: 100%;
+
+  .content {
+    height: 100%;
+    padding: 10px 80px 10px;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 1440px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .main-content {
+    .content {
+      padding: 10px 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .main-content {
+    display: flex;
+    flex-direction: column;
+
+    .content {
+      overflow: auto;
+      height: 100%;
+      width: 100%;
+      position: relative;
+      right: auto;
+      left: 0;
+      top: 0;
+      bottom: auto;
+      margin: 0;
+      padding: 10px 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .ui-view_main {
+    overflow: hidden;
+  }
+}
+
+.plate-note,
+.plate-warning,
+.plate-error,
+.plate-transparent {
+  position: relative;
+  padding: 14px;
+  width: 100%;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: @border-radius;
+  min-height: 54px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  div:first-child {
+    margin: 0;
+
+    & + div {
+      margin-top: 4px;
+    }
+  }
+}
+
+.plate {
+  &-transparent,
+  &-note {
+    border-color: @color-basic-200;
+    background: @color-basic-50;
+  }
+  &-warning {
+    border-color: @color-warning-400;
+  }
+  &-error {
+    border-color: @color-error-500;
+  }
+  &-transparent {
+    background: none transparent;
+  }
+}
+
+.main-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &-wrapper {
+    height: 100%;
+    display: flex;
+    width: 100%;
+    flex-grow: 1;
+    flex-direction: column;
+    box-shadow: 0 1px 0 0 rgba(161, 181, 230, 0.15) inset;
+  }
+}
+
+.getStartedContentWidth(@padding) {
+  max-width: 100%;
+  width: 100%;
+  padding: @padding * 2 @padding;
+}
+
+.getStartedContentWidthDesktop {
+  max-width: @getStartedContentWidth;
+  margin: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.get-started-footer {
+  .getStartedContentWidth(0);
+  margin: auto;
+  text-align: center;
+}
+
+.get-started-content {
+  .getStartedContentWidth(@getStartedContentPadding);
+}
+
+.get-started-checkbox-save {
+  margin: 15px 0 20px;
+}
+
+@media screen and (min-width: 480px) {
+  .get-started-content {
+    .getStartedContentWidthDesktop;
+  }
+
+  .get-started-footer {
+    max-width: @getStartedFooterWidth;
+  }
+
+  .get-started-checkbox-save {
+    margin: 20px 0 30px;
+  }
+}

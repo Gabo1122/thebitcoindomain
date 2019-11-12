@@ -1,0 +1,209 @@
+{
+  "vendors": [
+    "node_modules/@waves/bignumber/dist/bignumber.umd.js",
+    "node_modules/@waves/waves-transactions/dist/min/waves-transactions.min.js",
+    "node_modules/@waves/oracle-data/dist/oracle-data.min.js",
+    "node_modules/parse-json-bignumber/dist/parse-json-bignumber.min.js",
+    "node_modules/handlebars/dist/handlebars.min.js",
+    "node_modules/ramda/dist/ramda.min.js",
+    "node_modules/mobile-detect/mobile-detect.min.js",
+    "node_modules/handlebars/dist/handlebars.min.js",
+    "node_modules/mousetrap/mousetrap.min.js",
+    "node_modules/clipboard/dist/clipboard.min.js",
+    "node_modules/papaparse/papaparse.min.js",
+    "node_modules/js-cookie/src/js.cookie.js",
+    "vendors/require-modules.js",
+    "node_modules/ts-utils/dist/ts-utils.min.js",
+    "node_modules/@waves/data-entities/dist/data-entities.min.js",
+    "node_modules/@waves/waves-browser-bus/dist/browser-bus.min.js",
+    "node_modules/@waves/event-sender/dist/analytics.js",
+    "node_modules/@waves/ledger/dist/waves-ledger.js",
+    "node_modules/@waves/ledger/dist/transport-u2f.js",
+    "node_modules/qrcode/build/qrcode.min.js",
+    "node_modules/ts-api-validator/dist/ts-api-validator.partial.min.js",
+    "node_modules/jquery/dist/jquery.min.js",
+    "node_modules/d3/d3.min.js",
+    "node_modules/@waves/signature-adapter/dist/signature-adapter.min.js",
+    "data-service-dist/data-service.js",
+    "node_modules/identity-img/dist/identity-img.min.js",
+    "node_modules/i18next-locize-backend/i18nextLocizeBackend.min.js",
+    "node_modules/angular/angular.min.js",
+    "node_modules/angular-animate/angular-animate.min.js",
+    "node_modules/angular-aria/angular-aria.min.js",
+    "node_modules/angular-material/angular-material.min.js",
+    "node_modules/@uirouter/angularjs/release/angular-ui-router.min.js",
+    "node_modules/@uirouter/angularjs/release/stateEvents.min.js",
+    "node_modules/i18next/dist/umd/i18next.js"
+  ],
+  "vendorsNotWrapped": [
+    "node_modules/@sentry/browser/build/bundle.min.js",
+    "node_modules/worker-wrapper/dist/worker-wrapper.js"
+  ],
+  "exportPageVendors": [
+    "node_modules/ts-utils/dist/ts-utils.min.js",
+    "node_modules/@waves/waves-browser-bus/dist/browser-bus.min.js"
+  ],
+  "analyticsIframe": "https://iframe.wavesplatform.com",
+  "langList": {
+    "en": {
+      "name": "English",
+      "separators": {
+        "group": ",",
+        "decimal": "."
+      }
+    },
+    "ru": {
+      "name": "Russian",
+      "separators": {
+        "group": " ",
+        "decimal": "."
+      }
+    },
+    "ko": {
+      "name": "Korean",
+      "separators": {
+        "group": ",",
+        "decimal": "."
+      }
+    },
+    "zh_CN": {
+      "name": "Chinese",
+      "separators": {
+        "group": ",",
+        "decimal": "."
+      }
+    },
+    "tr": {
+      "name": "Turkish",
+      "separators": {
+        "group": " ",
+        "decimal": "."
+      }
+    },
+    "ja": {
+      "name": "Japanese",
+      "separators": {
+        "group": ",",
+        "decimal": "."
+      }
+    },
+    "nl_NL": {
+      "name": "Dutch",
+      "separators": {
+        "group": ",",
+        "decimal": "."
+      }
+    },
+    "hi_IN": {
+      "name": "Hindi",
+      "separators": {
+        "group": ",",
+        "decimal": "."
+      }
+    },
+    "es": {
+      "name": "Spanish",
+      "separators": {
+        "group": ",",
+        "decimal": "."
+      }
+    },
+    "et_EE": {
+      "name": "Estonian",
+      "separators": {
+        "group": ",",
+        "decimal": "."
+      }
+    },
+    "pt_BR": {
+      "name": "Brazil",
+      "separators": {
+        "group": ",",
+        "decimal": "."
+      }
+    },
+    "pl": {
+      "name": "Polish",
+      "separators": {
+        "group": ",",
+        "decimal": "."
+      }
+    },
+    "it": {
+      "name": "Italian",
+      "separators": {
+        "group": ",",
+        "decimal": "."
+      }
+    },
+    "de": {
+      "name": "German",
+      "separators": {
+        "group": ",",
+        "decimal": "."
+      }
+    },
+    "id": {
+      "name": "Indonesian",
+      "separators": {
+        "group": ",",
+        "decimal": "."
+      }
+    },
+    "fr": {
+      "name": "French",
+      "separators": {
+        "group": ",",
+        "decimal": "."
+      }
+    }
+  },
+  "electronScripts": [
+  ],
+  "stylesheets": [
+    "node_modules/angular-material/angular-material.min.css"
+  ],
+  "developmentScripts": [
+    "dist/dev/js/vendors.js",
+    "dist/dev/js/not-wrapped-vendors.js",
+    "dist/dev/js/bundle.js",
+    "dist/dev/js/templates.js"
+  ],
+  "debugInjections": [
+    "helpers/loginDaemon.js",
+    "helpers/mobileConsole.js"
+  ],
+  "copyNodeModules": [
+    "node_modules/qrcode-reader/dist/index.min.js",
+    "node_modules/parse-json-bignumber/dist/parse-json-bignumber.min.js"
+  ],
+  "electron": {
+    "createPackageJSONFields": [
+      "name",
+      "version",
+      "author",
+      "description",
+      "license"
+    ],
+    "defaults": {
+      "main": "main.js",
+      "devDependencies": {
+        "electron-builder": "20.5.1",
+        "electron": "2.0.5",
+        "electron-rebuild": "^1.8.2"
+      },
+      "dependencies": {
+        "@ledgerhq/hw-transport-node-hid": "4.22.0",
+        "babel-runtime": "^6.26.0",
+        "i18next": "9.1.0",
+        "parse-json-bignumber": "0.0.2",
+        "qrcode-reader": "1.0.3",
+        "ts-utils": "6.0.2"
+      },
+      "scripts": {
+        "postinstall": "node_modules/.bin/electron-rebuild --force"
+      }
+    },
+    "server": "desktop.wavesplatform.com"
+  }
+}

@@ -1,0 +1,26 @@
+<w-main-header class="main-header main-header_new-user"
+               sign-in-btn="$ctrl.hasUsers"
+               get-started-btn="true"
+               user-list="$ctrl.userList"></w-main-header>
+<div w-i18n-ns="app.welcome" class="wrapper movable scrolled-view">
+    <div class="white-bg"></div>
+    <section class="section-welcome">
+        <div class="section-wrapper">
+            <div class="left-side">
+                <h1 class="margin-2 headline-0 welcome-text" w-i18n="welcome.tradeOnWaves"></h1>
+                <div class="basic-500 body-1 margin-5" w-i18n="welcome.tradeOnWavesDescription"></div>
+                <div class="buttons-wrapper buttons-wrapper-nowidth">
+                    <a class="fake-button get-started-btn" ui-sref="create">
+                        <span class="fake-button-content big submit" w-i18n="welcome.getStarted"></span>
+                    </a>
+                </div>
+            </div>
+            <w-web-only><div class="dex-screenshot"></div></w-web-only>
+        </div>
+    </section>
+
+
+
+</div>
+
+<w-loader ng-if="$ctrl.pendingRestore"></w-loader>

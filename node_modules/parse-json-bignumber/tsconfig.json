@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": false,
+    "declaration": true,
+    "outDir": "./dist"
+  },
+  "files": [
+    "src/parse-json-bignumber.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

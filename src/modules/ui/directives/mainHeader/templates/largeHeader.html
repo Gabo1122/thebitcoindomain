@@ -1,0 +1,158 @@
+<span class="logo logo-header" ng-if="$ctrl.isLogined"></span>
+<a class="logo logo-header" ng-if="!$ctrl.isLogined" href="/"></a>
+
+<nav class="top-menu" ng-if="!$ctrl.isLogined">
+    <a w-analytics event-target="'ui'"
+       event="'Menu Exchange Click'"
+       event-target="'ui'"
+       class="top-menu__link"
+       ui-sref="main.dex-demo"
+       w-i18n="welcome.exchange">
+    </a>
+    <a w-analytics event-target="'ui'"
+       event="'Menu News Click'"
+       event-target="'ui'"
+       class="top-menu__link"
+       href="https://blockchaincostarica.org"
+       target="_blank"
+       rel="noopener noreferrer"
+       w-i18n="welcome.news"></a>
+
+</nav>
+
+
+<nav class="top-menu" ng-if="$ctrl.isLogined">
+    <a class="top-menu__link top-menu__link-dex" ui-sref="main.dex" w-i18n="welcome.exchange"></a>
+    <div class="top-menu__link dropdown-toggler">
+        <a class="dropdown-toggler__btn" w-i18n="welcome.wallet"></a>
+        <div class="main-header__dropdown dropdown">
+            <a class="dropdown__link dropdown__link_assets" ui-sref="main.wallet.assets">
+                <i class="dropdown__icon dropdown__icon_dashboard icon-18"></i>
+                <span  class="dropdown__text" w-i18n="welcome.dashboard"></span>
+            </a>
+            <a class="dropdown__link dropdown__link_portfolio" ui-sref="main.wallet.portfolio">
+                <i class="dropdown__icon dropdown__icon_portfolio icon-18"></i>
+                <span  class="dropdown__text" w-i18n="welcome.portfolio"></span>
+            </a>
+            <a class="dropdown__link dropdown__link_transactions" ui-sref="main.wallet.transactions">
+                <i class="dropdown__icon dropdown__icon_transactions icon-18"></i>
+                <span  class="dropdown__text" w-i18n="welcome.transactions"></span>
+            </a>
+            <a class="dropdown__link dropdown__link_leasing" ui-sref="main.wallet.leasing">
+                <i class="dropdown__icon dropdown__icon_leasing icon-18"></i>
+                <span  class="dropdown__text" w-i18n="welcome.leasing"></span>
+            </a>
+        </div>
+    </div>
+    <a class="top-menu__link top-menu__link-tokens" ui-sref="main.tokens" w-i18n="welcome.createToken"></a>
+</nav>
+
+<div ng-if="!$ctrl.isLogined"
+     class="login-buttons buttons-wrapper buttons-wrapper-nowidth">
+    <a class="body-2 margin-right-3 submit-400 signIn-hidden" ng-if="$ctrl.userList.length > 0" ui-sref="signIn"
+       w-analytics event="'Sign In Click'" event-target="ui"
+       w-i18n="welcome.signIn"></a>
+    <div class="create-hidden">
+        <a class="fake-button submit medium" ui-sref="create">
+            <span w-i18n="welcome.getStarted" class="fake-button-content medium submit"></span>
+        </a>
+    </div>
+</div>
+
+<w-click-outside on-click-outside="$ctrl.closeDropdown()" ng-if="$ctrl.isLogined">
+    <div class="main-header__user {{SELECTORS.MAIN_HEADER_USER}}">
+
+        <div class="dropdown-toggler dropdown-toggler_right" ng-click="$ctrl.toggleDropdown()">
+            <div class="dropdown-toggler__avatar dropdown-toggler__avatar_has-helper">
+                <w-analytics event="'Account Picture Click'" event-target="'ui'">
+                    <w-avatar type="{{$ctrl.userType}}"
+                              size="36"
+                              address="$ctrl.address"></w-avatar>
+                </w-analytics>
+
+                <w-help-icon class="avatar-options-list" ng-if="($ctrl.hasTypeHelp)">
+                    <div class="help-icon__row row-keeper" ng-if="$ctrl.isKeeper">
+                        <span class="acount-option-icon"></span>
+                        <span w-i18n="welcome.keeperAccount"></span>
+                    </div>
+                    <div class="help-icon__row row-ledger" ng-if="$ctrl.isLedger">
+                        <span class="acount-option-icon"></span>
+                        <span w-i18n="welcome.ledgerAccount"></span>
+                    </div>
+                    <div class="help-icon__row row-script" ng-if="$ctrl.isScript">
+                        <span class="acount-option-icon"></span>
+                        <span w-i18n="welcome.scriptAccount"></span>
+                    </div>
+                </w-help-icon>
+            </div>
+        </div>
+
+
+        <div class="main-header__dropdown main-header__dropdown_user dropdown">
+
+            <div class="user-account text-center has-helper">
+
+                <div class="user-account__name">
+                    <div class="user-account__block" ng-show="!$ctrl.showInput" ng-click="$ctrl.setNameView()">
+                        <div class="user-account__text">{{user.name}}</div>
+                        <w-info-tooltip class="{{SELECTORS.TOOLTIP_RENAME}}" no-icon="true">
+                            <span class="tooltip__content" w-i18n="welcome.renameAccount"></span>
+                        </w-info-tooltip>
+                    </div>
+
+                    <div class="user-account__input" ng-show="$ctrl.showInput">
+                        <form ng-submit="$ctrl.onSave()" name="$ctrl.setUserName">
+                            <w-input-container>
+                                <w-input type="text"
+                                         class="tiny long"
+                                         ng-focus="$ctrl.onFocus()"
+                                         ng-blur="$ctrl.onBlur()"
+                                         ng-model="$ctrl.userName"
+                                         maxlength="{{::MAX_USER_NAME_LENGTH}}"
+                                         name="userName"
+                                         autocomplete="off"
+                                         required></w-input>
+
+                                <w-input-error class="tiny" ng-class='{hidden: $ctrl.isUniqueUserName}'>
+                                    <span w-i18n="welcome.inputErrorNameExists"></span>
+                                </w-input-error>
+                            </w-input-container>
+                            <div class="user-account__btns">
+                                <button class="user-account__btn user-account__btn_cancel"
+                                        ng-mousedown="$ctrl.onCancel()" ng-touchstart="$ctrl.onCancel()"></button>
+                                <button class="user-account__btn user-account__btn_ok"
+                                        ng-disabled="!$ctrl.userName || !$ctrl.isUniqueUserName"
+                                        ng-mousedown="$ctrl.onSave()" ng-touchstart="$ctrl.onSave()"></button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div class="user-account__address">
+                    <w-copy-wrap-default class="copy-underline basic-500 caption-4" info="$ctrl.address">
+                        {{$ctrl.address}}
+                    </w-copy-wrap-default>
+
+                    <w-info-tooltip no-icon="true">
+                        <span class="tooltip__content" w-i18n="welcome.copyAddress"></span>
+                    </w-info-tooltip>
+                </div>
+            </div>
+
+            <a class="dropdown__link dropdown__link_aliases" ng-click="$ctrl.showAliases()">
+                <i class="dropdown__icon dropdown__icon_aliases icon-18"></i>
+                <span class="dropdown__text" w-i18n="welcome.aliases"></span>
+            </a>
+            <a class="dropdown__link dropdown__link_settings" ng-click="$ctrl.showSettings()">
+                <i class="dropdown__icon dropdown__icon_settings icon-18"></i>
+                <span class="dropdown__text" w-i18n="welcome.settings"></span>
+            </a>
+            <a class="dropdown__link dropdown__link_logout" ng-click="$ctrl.logout()">
+                <i class="dropdown__icon dropdown__icon_logout icon-18"></i>
+                <span class="dropdown__text" w-i18n="welcome.logout"></span>
+            </a>
+        </div>
+
+    </div>
+</w-click-outside>

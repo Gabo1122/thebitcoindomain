@@ -1,0 +1,80 @@
+@import (reference) 'config';
+@import (reference) '../../../app/less/typography';
+
+w-input-container {
+  display: block;
+  position: relative;
+
+
+
+  input {
+    transition: all 0.3s;
+  }
+
+  .like-input-error,
+  w-input-error {
+    position: absolute;
+    left: 0;
+
+    &.multiline {
+      .error {
+        padding: 16px 25px 16px 16px;
+        overflow: auto;
+        max-height: 300px;
+      }
+
+      span.error-list-row {
+        display: block;
+      }
+
+      .show-all-errors-link {
+        color: @white-only;
+        margin-top: @padding-main-layout / 2;
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &.tiny {
+      .error {
+        margin-top: 5px;
+        padding: 7px 12px;
+        font-size: @font-size-caption-1;
+      }
+    }
+
+    &::before {
+      display: block;
+      width: 10px;
+      height: 10px;
+      content: '';
+      transform: rotate(45deg);
+      background: @color-error-400;
+      top: 2px;
+      left: 20px;
+      position: absolute;
+      z-index: 10;
+    }
+
+    .error {
+      background: @color-error-400;
+      padding: 10px 16px;
+      border-radius: @border-radius;
+      display: inline-block;
+      z-index: 2;
+      margin-top: 7px;
+      width: auto;
+      transition: all 0.3s;
+      color: @white-only;
+      position: relative;
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
+}
+
+md-input-container {
+  transform: translate3d(0, 0, 0);
+}

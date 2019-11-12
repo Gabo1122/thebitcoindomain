@@ -1,0 +1,33 @@
+@import (reference) 'config';
+
+w-chart {
+  display: block;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.chart-legend {
+    position: absolute;
+    bottom: 16px;
+    color: @color-basic-500;
+    font-size: @font-size-control-small;
+    user-select: none;
+    pointer-events: none;
+}
+
+
+svg.chart {
+  .axis {
+    .tick line {
+      display: none;
+    }
+    .domain {
+      stroke: transparent;
+    }
+
+    & > .tick > text {
+      fill: @color-disabled-700;
+      font-size: 13px;
+    }
+  }
+}
